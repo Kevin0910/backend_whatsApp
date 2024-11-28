@@ -12,8 +12,6 @@ export class Message extends Document {
   @Prop({ required: true })
   content: string;
 
-  @Prop({ default: false })
-  isRead: boolean;
 }
 
 export const MessageSchema = SchemaFactory.createForClass(Message);

@@ -8,8 +8,14 @@ export class MessagesService {
   constructor(@InjectModel(Message.name) private messageModel: Model<Message>) {}
 
   async sendMessage(senderId: string, receiverId: string, content: string): Promise<Message> {
-    const newMessage = new this.messageModel({ senderId, receiverId, content });
-    return newMessage.save();
+    const message = new this.messageModel({
+      senderId,
+      receiverId,
+      content,
+      createdAt: new Date(),
+    });
+
+    return await message.save();
   }
 
   async getMessages(senderId: string, receiverId: string): Promise<Message[]> {
