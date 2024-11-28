@@ -24,7 +24,7 @@ export class MessagesService {
         { senderId, receiverId },
         { senderId: receiverId, receiverId: senderId },
       ],
-    }).sort({ createdAt: -1 });
+    }).sort({ createdAt: 1 });
   }
 
   async markAsRead(messageId: string): Promise<Message> {
